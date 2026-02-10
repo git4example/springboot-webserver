@@ -17,6 +17,7 @@ spec:
       containers:
       - name: springboot-webserver
         image: 064250592128.dkr.ecr.ap-southeast-2.amazonaws.com/springboot-webserver:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
           name: http
@@ -58,6 +59,17 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: "default"
+      - name: netshoot
+        image: nicolaka/netshoot:latest
+        command: ["/bin/bash"]
+        args: ["-c", "sleep infinity"]
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
 ---
 apiVersion: v1
 kind: Service
