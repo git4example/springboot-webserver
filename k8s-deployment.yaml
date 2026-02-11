@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: springboot-webserver
-        image: 064250592128.dkr.ecr.ap-southeast-2.amazonaws.com/springboot-webserver:latest
+        image: public.ecr.aws/parikshit/springboot-webserver:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
